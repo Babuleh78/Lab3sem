@@ -1,10 +1,29 @@
-
+import sys
 def input_coef():
-    a = float(input("Введите коэффициент a: "))
-    b = float(input("Введите коэффициент b: "))
-    c = float(input("Введите коэффициент c: "))
+    try:
+        a_s = sys.argv[1]
+        b_s =sys.argv[2]
+        c_s = sys.argv[3]
+        a= float(a_s)
+        b= float(b_s)
+        c = float(c_s)
+    except (IndexError, ValueError):
+        a = float(vvod("a"))
+        b = float(vvod("b"))
+        c = float(vvod("c"))
+        
     return a, b, c
 
+def vvod(a):
+    print("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ " +a)
+    while(True):
+            coef_s = input()
+            try:
+                coef = float(coef_s)
+                break
+            except ValueError:
+                print("РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ! Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РµС‰Рµ СЂР°Р·:")
+    return coef
 def calc_disc(a, b, c):
     return b**2 - 4*a*c
 
@@ -29,11 +48,11 @@ def find_roots(a, b, c):
 
 def print_roots(roots):
     if roots is None:
-        print("Уравнение не имеет действительных корней.")
+        print("РЈСЂР°РІРЅРµРЅРёРµ РЅРµ РёРјРµРµС‚ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅС‹С… РєРѕСЂРЅРµР№.")
     elif len(roots) == 2:
-        print(f"Уравнение имеет два корня: {roots[0]} и {roots[1]}")
+        print(f"РЈСЂР°РІРЅРµРЅРёРµ РёРјРµРµС‚ РґРІР° РєРѕСЂРЅСЏ: {roots[0]} Рё {roots[1]}")
     else:
-        print(f"Уравнение имеет четыре корня: +-{roots[0]} и +- {roots[2]}")
+        print(f"РЈСЂР°РІРЅРµРЅРёРµ РёРјРµРµС‚ С‡РµС‚С‹СЂРµ РєРѕСЂРЅСЏ: +-{roots[1]} Рё +- {roots[3]}")
 
 def main():
     try:
@@ -41,7 +60,7 @@ def main():
         roots = find_roots(a, b, c)
         print_roots(roots)
     except ValueError as e:
-        print(f"Ошибка ввода: {e}")
+        print(f"РћС€РёР±РєР° РІРІРѕРґР°: {e}")
 
 if __name__ == "__main__":
     main()
