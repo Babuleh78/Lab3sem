@@ -14,7 +14,7 @@ def get_coef(to_print, i):
                 coef = float(coef_s)
                 break
             except ValueError:
-                print("Неверный ввод! Введите число еще раз:")
+                print("РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ! Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РµС‰Рµ СЂР°Р·:")
             
     return coef
     
@@ -39,18 +39,18 @@ def get_roots(a,b,c):
 
 def main():
    
-    a = get_coef("Введите значение 1:", 1)
-    b = get_coef("Введите значение 2:", 2)
-    c = get_coef("Введите значение 3:", 3)
+    a = get_coef("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ 1:", 1)
+    b = get_coef("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ 2:", 2)
+    c = get_coef("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ 3:", 3)
    
     roots = get_roots(a, b, c)
     if len(roots) == 0:
-        print(f"Уравнение {int(a)}x^4 + {int(b)}x^2 + = 0 не имеет корней.")
+        print(f"РЈСЂР°РІРЅРµРЅРёРµ {int(a)}x^4 + {int(b)}x^2 + = 0 РЅРµ РёРјРµРµС‚ РєРѕСЂРЅРµР№.")
     elif len(roots) <= 4:
         root_list = ', '.join(map(str, roots))
-        print(f"Уравнение {int(a)}x^4 + {int(b)}x^2 + {int(c)} = 0 имеет корня(ей): {root_list}.")
+        print(f"РЈСЂР°РІРЅРµРЅРёРµ {int(a)}x^4 + {int(b)}x^2 + {int(c)} = 0 РёРјРµРµС‚ РєРѕСЂРЅСЏ(РµР№): {root_list}.")
     else:
-        print("Ошибка: найдено больше 4 корней.")
+        print("РћС€РёР±РєР°: РЅР°Р№РґРµРЅРѕ Р±РѕР»СЊС€Рµ 4 РєРѕСЂРЅРµР№.")
 
 if __name__ == "__main__":
     main()
