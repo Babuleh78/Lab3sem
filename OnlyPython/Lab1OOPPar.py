@@ -6,7 +6,7 @@ class Bikvadrat:
     def solve(self):
         D = self.b**2 - 4 * self.a * self.c
         if D< 0:
-            return "РЈСЂР°РІРЅРµРЅРёРµ РЅРµ РёРјРµРµС‚ РІРµС‰РµСЃС‚РІРµРЅРЅС‹С… РєРѕСЂРЅРµР№."
+            return "Уравнение не имеет вещественных корней."
     
         y1 = (-self.b + D**0.5) / (2 * self.a)
         y2 = (-self.b - D**0.5) / (2 * self.a)
@@ -17,14 +17,14 @@ class Bikvadrat:
         if y2 >= 0:
             roots.append(round(y2**0.5,4))
             roots.append(round(-y2**0.5,4))
-        return roots if roots else "РЈСЂР°РІРЅРµРЅРёРµ РЅРµ РёРјРµРµС‚ РІРµС‰РµСЃС‚РІРµРЅРЅС‹С… РєРѕСЂРЅРµР№."
+        return roots if roots else "Уравнение не имеет вещественных корней."
 def main():
-    a = float(input("Р’РІРµРґРёС‚Рµ РєРѕСЌС„С„РёС†РёРµРЅС‚ a: "))
-    b = float(input("Р’РІРµРґРёС‚Рµ РєРѕСЌС„С„РёС†РёРµРЅС‚ b: "))
-    c = float(input("Р’РІРµРґРёС‚Рµ РєРѕСЌС„С„РёС†РёРµРЅС‚ c: "))
+    a = float(input("Введите коэффициент a: "))
+    b = float(input("Введите коэффициент b: "))
+    c = float(input("Введите коэффициент c: "))
     ans = Bikvadrat(a, b, c)
     roots = ans.solve()
-    print("РљРѕСЂРЅРё СѓСЂР°РІРЅРµРЅРёСЏ:", roots)
+    print("Корни уравнения:", roots)
 
 if __name__ == "__main__":
     main()
