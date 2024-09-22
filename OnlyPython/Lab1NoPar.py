@@ -14,7 +14,7 @@ def get_coef(to_print, i):
                 coef = float(coef_s)
                 break
             except ValueError:
-                print("�������� ����! ������� ����� ��� ���:")
+                print("Неверный ввод! Введите число:")
             
     return coef
     
@@ -39,18 +39,18 @@ def get_roots(a,b,c):
 
 def main():
    
-    a = get_coef("������� �������� 1:", 1)
-    b = get_coef("������� �������� 2:", 2)
-    c = get_coef("������� �������� 3:", 3)
+    a = get_coef("Введите коэффициент a:", 1)
+    b = get_coef("Введите коэффициент b:", 2)
+    c = get_coef("Введите коэффициент c:", 3)
    
     roots = get_roots(a, b, c)
     if len(roots) == 0:
-        print(f"��������� {int(a)}x^4 + {int(b)}x^2 + = 0 �� ����� ������.")
+        print(f"Уравнение {int(a)}x^4 + {int(b)}x^2 = 0 не имеет корней.")
     elif len(roots) <= 4:
         root_list = ', '.join(map(str, roots))
-        print(f"��������� {int(a)}x^4 + {int(b)}x^2 + {int(c)} = 0 ����� �����(��): {root_list}.")
+        print(f"Уравнение {int(a)}x^4 + {int(b)}x^2 + {int(c)} = 0 имеет четыре корня: {root_list}.")
     else:
-        print("������: ������� ������ 4 ������.")
+        print("Уравнение имеет больше 4-х корней, ОШИБКА!")
 
 if __name__ == "__main__":
     main()
