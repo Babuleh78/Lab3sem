@@ -8,7 +8,7 @@ load_dotenv(find_dotenv())
 from handlers.user_private import user_private_router
 from common.bot_cmds_list import private
 
-ALLOWED_UPDATES = ['message', 'edited_message']
+ALLOWED_UPDATES = ['message', 'edited_message', 'callback_query']
 
 bot = Bot(token = os.getenv('TOKEN'))
 
@@ -22,6 +22,6 @@ async def main() -> None:
         await bot.set_my_commands(commands=private, scope=types.BotCommandScopeAllPrivateChats())
     except Exception as e:
         print(f"An error occurred: {e}")
-    await dp.start_polling(bot, allowed_updates= ALLOWED_UPDATES ) #запуск бота
+    await dp.start_polling(bot, allowed_updates= dp.resolve_used_update_types() ) #запуск бота
 
 asyncio.run(main())
