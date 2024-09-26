@@ -8,7 +8,7 @@ load_dotenv(find_dotenv())
 from handlers.user_private import user_private_router
 from common.bot_cmds_list import private
 
-ALLOWED_UPDATES = ['message', 'edited_message', 'callback_query']
+ALLOWED_UPDATES = ['message', 'edited_message']
 
 bot = Bot(token = os.getenv('TOKEN'))
 
@@ -17,7 +17,6 @@ dp.include_router(user_private_router)
 
 async def main() -> None:
     await bot.delete_webhook(drop_pending_updates=True)
-    #await bot.set_my_commands(commands=private, scope = types.BotCommandScopeAllPrivateChats())
     try:
         await bot.set_my_commands(commands=private, scope=types.BotCommandScopeAllPrivateChats())
     except Exception as e:
