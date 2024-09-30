@@ -26,5 +26,4 @@ class TestStudent(unittest.TestCase):
         self.student.set_state(Walk())
         self.assertEqual(self.student.where(), "Студент в пути")
 
-if __name__ == "__main__":
-    unittest.main()
+unittest.main()
